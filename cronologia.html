@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Línea de Tiempo - Mes Patrio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-patrio: #006847;
+            --blanco: #ffffff;
+            --rojo-patrio: #CE1126;
+            --fondo-neutro: #F4F6F8;
+            --texto-oscuro: #212529;
+            --texto-suave: #555555;
+            --sombra: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; background-color: var(--fondo-neutro); color: var(--texto-oscuro); line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            background-color: var(--blanco);
+            box-shadow: var(--sombra);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--verde-patrio);
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--verde-patrio); text-decoration: none; }
+        .logo span { color: var(--rojo-patrio); }
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--rojo-patrio); }
+
+        .seccion { padding: 60px 0; }
+        .titulo-seccion { text-align: center; font-size: 2rem; color: var(--verde-patrio); margin-bottom: 40px; position: relative; }
+        .titulo-seccion::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--rojo-patrio); margin: 10px auto 0 auto; border-radius: 2px; }
+
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--verde-patrio); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+        .item-timeline { padding: 10px 40px; position: relative; width: 50%; }
+        .item-timeline::after { content: ''; position: absolute; width: 16px; height: 16px; right: -10px; background-color: var(--blanco); border: 4px solid var(--rojo-patrio); top: 15px; border-radius: 50%; z-index: 1; }
+        .izquierda { left: 0; }
+        .derecha { left: 50%; }
+        .derecha::after { left: -10px; }
+
+        .contenido-timeline { padding: 20px; background-color: var(--blanco); border-radius: 8px; box-shadow: var(--sombra); border-top: 3px solid var(--verde-patrio); }
+        .fecha { display: inline-block; background-color: var(--rojo-patrio); color: var(--blanco); padding: 3px 10px; font-size: 0.85rem; font-weight: bold; border-radius: 3px; margin-bottom: 10px; }
+
+        .navegacion-paginas { display: flex; justify-content: space-between; margin-top: 40px; }
+        .btn { display: inline-block; padding: 10px 20px; font-weight: 600; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; }
+        .btn-verde { background-color: var(--verde-patrio); color: var(--blanco); }
+        .btn-rojo { background-color: var(--rojo-patrio); color: var(--blanco); }
+
+        footer { background-color: var(--blanco); text-align: center; padding: 30px 0; margin-top: 40px; border-top: 5px solid var(--verde-patrio); }
+        footer p { color: var(--texto-suave); font-size: 0.9rem; }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .item-timeline { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .item-timeline::after { left: 21px; }
+            .derecha { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Septiembre <span>Patrio</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cronologia.html" class="active">Línea de Tiempo</a></li>
+                    <li><a href="personajes.html">Personajes</a></li>
+                    <li><a href="mitos.html">Mitos y Datos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="seccion">
+        <div class="container">
+            <h2 class="titulo-seccion">Línea de Tiempo: Fechas Clave</h2>
+            
+            <div class="timeline">
+                <div class="item-timeline izquierda">
+                    <div class="contenido-timeline">
+                        <span class="fecha">13 de Septiembre de 1847</span>
+                        <h3>Gesta Heroica de Chapultepec</h3>
+                        <p>Defensa del Castillo de Chapultepec por los Niños Héroes frente a la invasión estadounidense en la guerra de 1846-1848.</p>
+                    </div>
+                </div>
+
+                <div class="item-timeline derecha">
+                    <div class="contenido-timeline">
+                        <span class="fecha">15 y 16 de Septiembre de 1810</span>
+                        <h3>El Grito de Independencia</h3>
+                        <p>El cura Miguel Hidalgo y Costilla convoca al pueblo de Dolores a levantarse en armas contra el dominio español, dando inicio a la Guerra de Independencia.</p>
+                    </div>
+                </div>
+
+                <div class="item-timeline izquierda">
+                    <div class="contenido-timeline">
+                        <span class="fecha">27 de Septiembre de 1821</span>
+                        <h3>Consumación de la Independencia</h3>
+                        <p>El Ejército Trigarante, liderado por Agustín de Iturbide y Vicente Guerrero, entra triunfal a la Ciudad de México, consumando la independencia tras 11 años de lucha.</p>
+                    </div>
+                </div>
+
+                <div class="item-timeline derecha">
+                    <div class="contenido-timeline">
+                        <span class="fecha">30 de Septiembre de 1765</span>
+                        <h3>Natalicio de José María Morelos</h3>
+                        <p>Nacimiento de "El Siervo de la Nación", estratega militar y político fundamental, autor de los <em>Sentimientos de la Nación</em>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navegacion-paginas">
+                <a href="index.html" class="btn btn-verde">← Volver al Inicio</a>
+                <a href="personajes.html" class="btn btn-rojo">Ver Personajes →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Jesus Candia 0814</strong></p>
+            <p><center>5to J</p></center>
+        </div>
+    </footer>
+
+</body>
+</html>
