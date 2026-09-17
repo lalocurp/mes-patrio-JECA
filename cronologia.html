@@ -1,11 +1,20 @@
+<!-- Indica la declaración del estándar HTML5 -->
 <!DOCTYPE html>
+<!-- Etiqueta raíz especificada en idioma español -->
 <html lang="es">
 <head>
+    <!-- Configuración para codificación de caracteres acentuados -->
     <meta charset="UTF-8">
+    <!-- Ajuste móvil responsivo para adaptación a pantallas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la pestaña para la sección de Cronología -->
     <title>Línea de Tiempo - Mes Patrio</title>
+    <!-- Importación de tipografías desde Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Bloque de estilos propios de la sección de Línea de Tiempo -->
     <style>
+        /* Definición de las variables CSS de paleta de colores patrios */
         :root {
             --verde-patrio: #006847;
             --blanco: #ffffff;
@@ -16,11 +25,16 @@
             --sombra: 0 4px 15px rgba(0,0,0,0.08);
         }
 
+        /* Reseteo universal de propiedades por defecto */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* Estilos generales para el fondo de lectura y tipografía */
         body { font-family: 'Open Sans', sans-serif; background-color: var(--fondo-neutro); color: var(--texto-oscuro); line-height: 1.6; }
+        /* Familia tipográfica para títulos */
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        /* Contenedor estandarizado centrado con ancho límite */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
+        /* Estilos del encabezado navegable sticky superior */
         header {
             background-color: var(--blanco);
             box-shadow: var(--sombra);
@@ -30,6 +44,7 @@
             border-bottom: 4px solid var(--verde-patrio);
         }
 
+        /* Distribución interna del header mediante flexbox */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--verde-patrio); text-decoration: none; }
         .logo span { color: var(--rojo-patrio); }
@@ -37,39 +52,54 @@
         .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--rojo-patrio); }
 
+        /* Estilo base para las secciones estructuradas de la página */
         .seccion { padding: 60px 0; }
+        /* Encabezados de sección con detalle decorativo inferior */
         .titulo-seccion { text-align: center; font-size: 2rem; color: var(--verde-patrio); margin-bottom: 40px; position: relative; }
+        /* Adorno en forma de línea roja bajo el título */
         .titulo-seccion::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--rojo-patrio); margin: 10px auto 0 auto; border-radius: 2px; }
 
+        /* Contenedor de la línea del tiempo vertical */
         .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        /* Eje central verde de la línea del tiempo */
         .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--verde-patrio); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+        /* Estilos base de cada evento / nodo dentro de la línea */
         .item-timeline { padding: 10px 40px; position: relative; width: 50%; }
+        /* Círculo indicador / punto rojo en la línea */
         .item-timeline::after { content: ''; position: absolute; width: 16px; height: 16px; right: -10px; background-color: var(--blanco); border: 4px solid var(--rojo-patrio); top: 15px; border-radius: 50%; z-index: 1; }
+        /* Alineación a la izquierda */
         .izquierda { left: 0; }
+        /* Alineación a la derecha */
         .derecha { left: 50%; }
         .derecha::after { left: -10px; }
 
+        /* Tarjeta blanca con la descripción histórica */
         .contenido-timeline { padding: 20px; background-color: var(--blanco); border-radius: 8px; box-shadow: var(--sombra); border-top: 3px solid var(--verde-patrio); }
+        /* Etiqueta de la fecha histórica en color rojo */
         .fecha { display: inline-block; background-color: var(--rojo-patrio); color: var(--blanco); padding: 3px 10px; font-size: 0.85rem; font-weight: bold; border-radius: 3px; margin-bottom: 10px; }
 
+        /* Botones de paginación previa e izquierda/derecha para ir navegando entre archivos */
         .navegacion-paginas { display: flex; justify-content: space-between; margin-top: 40px; }
         .btn { display: inline-block; padding: 10px 20px; font-weight: 600; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; }
         .btn-verde { background-color: var(--verde-patrio); color: var(--blanco); }
         .btn-rojo { background-color: var(--rojo-patrio); color: var(--blanco); }
 
+        /* Estilo para el pie de página */
         footer { background-color: var(--blanco); text-align: center; padding: 30px 0; margin-top: 40px; border-top: 5px solid var(--verde-patrio); }
         footer p { color: var(--texto-suave); font-size: 0.9rem; }
 
+        /* Ajustes responsivos para pantallas de dispositivos móviles menores a 768px */
         @media screen and (max-width: 768px) {
-            .timeline::after { left: 31px; }
-            .item-timeline { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .item-timeline::after { left: 21px; }
+            .timeline::after { left: 31px; } /* Mueve el eje vertical a la izquierda */
+            .item-timeline { width: 100%; padding-left: 70px; padding-right: 25px; } /* Extiende las tarjetas al 100% de ancho */
+            .item-timeline::after { left: 21px; } /* Reposiciona los puntos verdes en móviles */
             .derecha { left: 0%; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Encabezado navegable -->
     <header>
         <div class="container">
             <nav>
@@ -84,11 +114,14 @@
         </div>
     </header>
 
+    <!-- Sección que contiene la Línea de Tiempo completa -->
     <section class="seccion">
         <div class="container">
             <h2 class="titulo-seccion">Línea de Tiempo: Fechas Clave</h2>
             
+            <!-- Estructura vertical interactiva -->
             <div class="timeline">
+                <!-- Evento 1 -->
                 <div class="item-timeline izquierda">
                     <div class="contenido-timeline">
                         <span class="fecha">13 de Septiembre de 1847</span>
@@ -97,6 +130,7 @@
                     </div>
                 </div>
 
+                <!-- Evento 2 -->
                 <div class="item-timeline derecha">
                     <div class="contenido-timeline">
                         <span class="fecha">15 y 16 de Septiembre de 1810</span>
@@ -105,6 +139,7 @@
                     </div>
                 </div>
 
+                <!-- Evento 3 -->
                 <div class="item-timeline izquierda">
                     <div class="contenido-timeline">
                         <span class="fecha">27 de Septiembre de 1821</span>
@@ -113,6 +148,7 @@
                     </div>
                 </div>
 
+                <!-- Evento 4 -->
                 <div class="item-timeline derecha">
                     <div class="contenido-timeline">
                         <span class="fecha">30 de Septiembre de 1765</span>
@@ -122,6 +158,7 @@
                 </div>
             </div>
 
+            <!-- Botones interconectados para cambiar entre las distintas páginas HTML -->
             <div class="navegacion-paginas">
                 <a href="index.html" class="btn btn-verde">← Volver al Inicio</a>
                 <a href="personajes.html" class="btn btn-rojo">Ver Personajes →</a>
@@ -129,10 +166,11 @@
         </div>
     </section>
 
+    <!-- Pie de página específico de la página de Cronología -->
     <footer>
         <div class="container">
-            <p><strong>Jesus Candia 0814</strong></p>
-            <p><center>5to J</p></center>
+            <p><strong>Sitio Web Informativo - Mes Patrio</strong></p>
+            <p>Sección: Línea de Tiempo y Acontecimientos Históricos</p>
         </div>
     </footer>
 
