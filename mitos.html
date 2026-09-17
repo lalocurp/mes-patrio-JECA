@@ -1,11 +1,20 @@
+<!-- Estándar de desarrollo web en HTML5 -->
 <!DOCTYPE html>
+<!-- Definición del idioma del sitio como español -->
 <html lang="es">
 <head>
+    <!-- Metadato que especifica la codificación de caracteres acentuados -->
     <meta charset="UTF-8">
+    <!-- Escala adecuada para la correcta visualización en dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título mostrado en la pestaña del navegador -->
     <title>Mitos y Datos Curiosos - Mes Patrio</title>
+    <!-- Inclusión de tipografía externa Montserrat y Open Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Bloque CSS con estilos para las tarjetas de mitos vs datos -->
     <style>
+        /* Variables globales con la paleta de colores patrios en tonos neutros */
         :root {
             --verde-patrio: #006847;
             --blanco: #ffffff;
@@ -16,11 +25,15 @@
             --sombra: 0 4px 15px rgba(0,0,0,0.08);
         }
 
+        /* Reseteo universal de espacios por defecto */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* Estilos generales de lectura */
         body { font-family: 'Open Sans', sans-serif; background-color: var(--fondo-neutro); color: var(--texto-oscuro); line-height: 1.6; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        /* Limite de ancho centrado */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
+        /* Barra de navegación superior fija */
         header {
             background-color: var(--blanco);
             box-shadow: var(--sombra);
@@ -41,23 +54,30 @@
         .titulo-seccion { text-align: center; font-size: 2rem; color: var(--verde-patrio); margin-bottom: 40px; position: relative; }
         .titulo-seccion::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--rojo-patrio); margin: 10px auto 0 auto; border-radius: 2px; }
 
+        /* Contenedor Grid para organizar las tarjetas comparativas */
         .grid-mitos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        /* Tarjeta para la distinción del mito con borde superior rojo */
         .card-mito { background-color: var(--blanco); padding: 25px; border-radius: 8px; box-shadow: var(--sombra); border-top: 4px solid var(--rojo-patrio); }
         .card-mito h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--texto-oscuro); }
+        /* Insignia indicadora de Mito con color de alerta rojo */
         .badge-mito { color: var(--rojo-patrio); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+        /* Insignia indicadora de Verdad Histórica con color verde */
         .badge-realidad { color: var(--verde-patrio); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
 
+        /* Botones de navegación horizontal */
         .navegacion-paginas { display: flex; justify-content: space-between; margin-top: 40px; }
         .btn { display: inline-block; padding: 10px 20px; font-weight: 600; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; }
         .btn-verde { background-color: var(--verde-patrio); color: var(--blanco); }
         .btn-rojo { background-color: var(--rojo-patrio); color: var(--blanco); }
 
+        /* Estilo del pie de página */
         footer { background-color: var(--blanco); text-align: center; padding: 30px 0; margin-top: 40px; border-top: 5px solid var(--verde-patrio); }
         footer p { color: var(--texto-suave); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
+    <!-- Encabezado con navegación general -->
     <header>
         <div class="container">
             <nav>
@@ -72,11 +92,14 @@
         </div>
     </header>
 
+    <!-- Sección que presenta los mitos y datos históricos contrastados -->
     <section class="seccion">
         <div class="container">
             <h2 class="titulo-seccion">Mitos y Datos Curiosos</h2>
             
+            <!-- Rejilla con las 3 tarjetas de mitos históricos -->
             <div class="grid-mitos">
+                <!-- Tarjeta 1: Fecha del Grito -->
                 <div class="card-mito">
                     <p class="badge-mito">❌ Mito Popular</p>
                     <h3>¿El Grito se dio el 15 por el cumpleaños de Porfirio Díaz?</h3>
@@ -84,6 +107,7 @@
                     <p>Aunque la lucha inició la madrugada del 16 de septiembre, desde la década de 1840 la fiesta iniciaba desde la noche del 15 con serenatas y eventos populares.</p>
                 </div>
 
+                <!-- Tarjeta 2: Retrato de Hidalgo -->
                 <div class="card-mito">
                     <p class="badge-mito">❌ Mito Popular</p>
                     <h3>¿El retrato oficial de Miguel Hidalgo es real?</h3>
@@ -91,6 +115,7 @@
                     <p>No existen pinturas en vida de Miguel Hidalgo. El retrato conocido fue encargado por Maximiliano de Habsburgo en 1865 usando como modelo a un sacerdote belga.</p>
                 </div>
 
+                <!-- Tarjeta 3: Juan Escutia -->
                 <div class="card-mito">
                     <p class="badge-mito">❌ Mito Popular</p>
                     <h3>¿El mito de Juan Escutia y la bandera?</h3>
@@ -99,6 +124,7 @@
                 </div>
             </div>
 
+            <!-- Botones de paginación para regresar a personajes o volver al inicio -->
             <div class="navegacion-paginas">
                 <a href="personajes.html" class="btn btn-verde">← Ver Personajes</a>
                 <a href="index.html" class="btn btn-rojo">Inicio ↑</a>
@@ -106,10 +132,11 @@
         </div>
     </section>
 
+    <!-- Pie de página independiente para la sección de Mitos -->
     <footer>
         <div class="container">
-            <p><strong>Jesus Candia 0814</strong></p>
-            <p><center>5to J</p></center>
+            <p><strong>Sitio Web Informativo - Mes Patrio</strong></p>
+            <p>Sección: Mitos, Leyendas y Realidades Históricas</p>
         </div>
     </footer>
 
