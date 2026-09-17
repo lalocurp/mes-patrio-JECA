@@ -1,11 +1,20 @@
+<!-- Estándar HTML5 para la estructuración de la página -->
 <!DOCTYPE html>
+<!-- Idioma del documento configurado en español -->
 <html lang="es">
 <head>
+    <!-- Codificación universal de caracteres en UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Ajuste móvil responsivo para adaptación automática de ancho -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título descriptivo para la pestaña del navegador -->
     <title>Personajes Ilustres - Mes Patrio</title>
+    <!-- Carga de tipografías desde la API de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Bloque de estilos CSS internos para la galería de personajes -->
     <style>
+        /* Definición global de variables de color con tonos patrios y fondos neutros */
         :root {
             --verde-patrio: #006847;
             --blanco: #ffffff;
@@ -16,11 +25,15 @@
             --sombra: 0 4px 15px rgba(0,0,0,0.08);
         }
 
+        /* Limpieza de márgenes y paddings por defecto */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* Configuración de lectura accesible y agradable */
         body { font-family: 'Open Sans', sans-serif; background-color: var(--fondo-neutro); color: var(--texto-oscuro); line-height: 1.6; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        /* Limite de ancho centrado horizontalmente */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
+        /* Barra de navegación superior sticky */
         header {
             background-color: var(--blanco);
             box-shadow: var(--sombra);
@@ -41,26 +54,35 @@
         .titulo-seccion { text-align: center; font-size: 2rem; color: var(--verde-patrio); margin-bottom: 40px; position: relative; }
         .titulo-seccion::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--rojo-patrio); margin: 10px auto 0 auto; border-radius: 2px; }
 
+        /* Rejilla Grid para organizar las tarjetas de personajes */
         .grid-personajes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        /* Tarjeta individual del personaje */
         .card-personaje { background-color: var(--blanco); border-radius: 8px; overflow: hidden; box-shadow: var(--sombra); transition: transform 0.3s ease; border-left: 5px solid var(--verde-patrio); }
+        /* Animación de elevación sobre la tarjeta */
         .card-personaje:hover { transform: translateY(-5px); }
+        /* Encabezado contenedor de la imagen en la tarjeta */
         .card-header { background-color: #e9ecef; height: 180px; display: flex; align-items: center; justify-content: center; }
+        /* Estilos aplicados directamente a cada archivo de imagen (.jpg) subida */
         .card-header img { width: 100%; height: 100%; object-fit: cover; }
+        /* Cuerpo informativo dentro de la tarjeta */
         .card-body { padding: 20px; }
         .card-body h3 { color: var(--verde-patrio); margin-bottom: 5px; }
         .card-body .titulo-personaje { color: var(--rojo-patrio); font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
 
+        /* Botones de flujo entre páginas */
         .navegacion-paginas { display: flex; justify-content: space-between; margin-top: 40px; }
         .btn { display: inline-block; padding: 10px 20px; font-weight: 600; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; }
         .btn-verde { background-color: var(--verde-patrio); color: var(--blanco); }
         .btn-rojo { background-color: var(--rojo-patrio); color: var(--blanco); }
 
+        /* Pie de página con franja superior decorativa */
         footer { background-color: var(--blanco); text-align: center; padding: 30px 0; margin-top: 40px; border-top: 5px solid var(--verde-patrio); }
         footer p { color: var(--texto-suave); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
+    <!-- Encabezado navegable -->
     <header>
         <div class="container">
             <nav>
@@ -75,13 +97,17 @@
         </div>
     </header>
 
+    <!-- Sección dedicada a mostrar las figuras insurgentes e históricas -->
     <section class="seccion">
         <div class="container">
             <h2 class="titulo-seccion">Personajes Ilustres</h2>
             
+            <!-- Rejilla con las 4 tarjetas de personajes incorporando sus imágenes .jpg -->
             <div class="grid-personajes">
+                <!-- Personaje 1: Miguel Hidalgo -->
                 <div class="card-personaje">
                     <div class="card-header">
+                        <!-- Muestra el archivo local de la imagen de Miguel Hidalgo -->
                         <img src="miguel hidalgo.jpg" alt="Miguel Hidalgo y Costilla">
                     </div>
                     <div class="card-body">
@@ -91,8 +117,10 @@
                     </div>
                 </div>
 
+                <!-- Personaje 2: Josefa Ortiz de Domínguez -->
                 <div class="card-personaje">
                     <div class="card-header">
+                        <!-- Muestra el archivo local de la imagen de Josefa Ortiz -->
                         <img src="josefa ortiz.jpg" alt="Josefa Ortiz de Domínguez">
                     </div>
                     <div class="card-body">
@@ -102,8 +130,10 @@
                     </div>
                 </div>
 
+                <!-- Personaje 3: José María Morelos -->
                 <div class="card-personaje">
                     <div class="card-header">
+                        <!-- Muestra el archivo local de la imagen de José María Morelos -->
                         <img src="jose maria.jpg" alt="José María Morelos">
                     </div>
                     <div class="card-body">
@@ -113,8 +143,10 @@
                     </div>
                 </div>
 
+                <!-- Personaje 4: Vicente Guerrero -->
                 <div class="card-personaje">
                     <div class="card-header">
+                        <!-- Muestra el archivo local de la imagen de Vicente Guerrero -->
                         <img src="vicente.jpg" alt="Vicente Guerrero">
                     </div>
                     <div class="card-body">
@@ -125,6 +157,7 @@
                 </div>
             </div>
 
+            <!-- Botones interactivos de cambio entre páginas -->
             <div class="navegacion-paginas">
                 <a href="cronologia.html" class="btn btn-verde">← Ver Línea de Tiempo</a>
                 <a href="mitos.html" class="btn btn-rojo">Ver Mitos y Datos →</a>
@@ -132,10 +165,11 @@
         </div>
     </section>
 
+    <!-- Pie de página único de la sección de Personajes -->
     <footer>
         <div class="container">
-            <p><strong>Jesus Candia 0814</strong></p>
-            <p><center>5to J</p></center>
+            <p><strong>Sitio Web Informativo - Mes Patrio</strong></p>
+            <p>Sección: Figuras Clave del Movimiento Insurgente</p>
         </div>
     </footer>
 
