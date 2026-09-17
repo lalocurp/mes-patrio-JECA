@@ -1,183 +1,221 @@
+<!-- Declara que el documento sigue el estándar HTML5 -->
 <!DOCTYPE html>
+<!-- Etiqueta raíz del documento web y define el idioma español -->
 <html lang="es">
 <head>
+    <!-- Define la codificación de caracteres para procesar acentos, letras 'ñ' y símbolos -->
     <meta charset="UTF-8">
+    <!-- Configura la ventana gráfica para que el diseño sea responsivo y se adapte a móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
     <title>Mes Patrio: Historia y Orgullo Mexicano</title>
+    <!-- Enlace a Google Fonts para cargar las tipografías 'Montserrat' y 'Open Sans' -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Bloque de estilos CSS internos -->
     <style>
+        /* Variables globales CSS para reutilizar colores y sombras en todo el sitio */
         :root {
-            --verde-patrio: #006847;
-            --blanco: #ffffff;
-            --rojo-patrio: #CE1126;
-            --fondo-neutro: #F4F6F8;
-            --texto-oscuro: #212529;
-            --texto-suave: #555555;
-            --sombra: 0 4px 15px rgba(0,0,0,0.08);
+            --verde-patrio: #006847; /* Color verde principal de la bandera */
+            --blanco: #ffffff; /* Color blanco */
+            --rojo-patrio: #CE1126; /* Color rojo de la bandera */
+            --fondo-neutro: #F4F6F8; /* Color gris claro para fondo de lectura cómoda */
+            --texto-oscuro: #212529; /* Color de texto principal en todo el documento */
+            --texto-suave: #555555; /* Color gris para texto secundario */
+            --sombra: 0 4px 15px rgba(0,0,0,0.08); /* Sombra suave para dar profundidad */
         }
 
+        /* Selector universal: aplica a absolutamente todos los elementos del documento */
         * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            box-sizing: border-box; /* Incluye el padding y bordes dentro del ancho total del elemento */
+            margin: 0; /* Elimina márgenes por defecto del navegador */
+            padding: 0; /* Elimina rellenado interno por defecto del navegador */
         }
 
+        /* Estilos generales aplicados al cuerpo completo de la página */
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--fondo-neutro);
-            color: var(--texto-oscuro);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: 'Open Sans', sans-serif; /* Tipografía principal para el cuerpo de texto */
+            background-color: var(--fondo-neutro); /* Aplica el color gris claro de fondo */
+            color: var(--texto-oscuro); /* Aplica el color gris oscuro al texto */
+            line-height: 1.6; /* Define la altura de línea para mejorar la lectura */
+            display: flex; /* Habilita el modelo Flexbox en el cuerpo */
+            flex-direction: column; /* Alinea los hijos de body en columna vertical */
+            min-height: 100vh; /* Fuerza a la página a ocupar al menos el 100% de la altura de la pantalla */
         }
 
+        /* Aplica tipografía Montserrat a los encabezados jerárquicos */
         h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
         }
 
+        /* Contenedor reutilizable para limitar el ancho y centrar el contenido */
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            width: 100%;
+            max-width: 1100px; /* Ancho máximo en pantallas grandes */
+            margin: 0 auto; /* Centra el contenedor horizontalmente */
+            padding: 0 20px; /* Margen interno a los lados para evitar colisiones en pantallas pequeñas */
+            width: 100%; /* Ancho completo hasta alcanzar el máximo indicado */
         }
 
+        /* Encabezado fijo en la parte superior */
         header {
-            background-color: var(--blanco);
-            box-shadow: var(--sombra);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 4px solid var(--verde-patrio);
+            background-color: var(--blanco); /* Fondo blanco limpio */
+            box-shadow: var(--sombra); /* Sombra inferior */
+            position: sticky; /* Mantiene la barra fija al desplazarse por la pantalla */
+            top: 0; /* Se adhiere al tope superior */
+            z-index: 1000; /* Asegura que la barra quede por encima de otros elementos */
+            border-bottom: 4px solid var(--verde-patrio); /* Borde inferior verde */
         }
 
+        /* Estilos de la barra de navegación flexible */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
+            display: flex; /* Flexbox para organizar elementos internamente */
+            justify-content: space-between; /* Empuja el logo a la izquierda y menú a la derecha */
+            align-items: center; /* Centra los elementos verticalmente */
+            padding: 15px 0; /* Espaciado interno superior e inferior */
         }
 
+        /* Estilo para el texto del logotipo */
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--verde-patrio);
-            text-decoration: none;
+            font-size: 1.5rem; /* Tamaño de fuente */
+            font-weight: 800; /* Grosor de letra extra negrita */
+            color: var(--verde-patrio); /* Color verde */
+            text-decoration: none; /* Elimina el subrayado de enlace */
         }
 
+        /* Estilo para la palabra resaltada dentro del logotipo */
         .logo span {
-            color: var(--rojo-patrio);
+            color: var(--rojo-patrio); /* Cambia el color a rojo */
         }
 
+        /* Lista de enlaces de navegación sin viñetas */
         .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
+            display: flex; /* Alinea las opciones del menú en fila horizontal */
+            list-style: none; /* Quita los puntos/viñetas de la lista */
+            gap: 20px; /* Espacio entre cada opción de la lista */
         }
 
+        /* Estilo individual para los enlaces del menú */
         .nav-links a {
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            font-weight: 600;
-            transition: color 0.3s;
+            text-decoration: none; /* Elimina el subrayado */
+            color: var(--texto-oscuro); /* Color texto oscuro */
+            font-weight: 600; /* Texto seminegrita */
+            transition: color 0.3s; /* Transición suave al cambiar de color */
         }
 
+        /* Cambio de color cuando el usuario pasa el mouse o la página está activa */
         .nav-links a:hover, .nav-links a.active {
-            color: var(--rojo-patrio);
+            color: var(--rojo-patrio); /* Cambia a rojo patrio */
         }
 
+        /* Sección banner principal / Hero */
         .hero {
+            /* Capa semitransparente blanca sobre imagen de fondo */
             background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
                         url('https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 5px solid var(--rojo-patrio);
-            flex: 1;
+            background-size: cover; /* Ajusta la imagen de fondo para cubrir todo el contenedor */
+            background-position: center; /* Centra la imagen */
+            padding: 80px 0; /* Relleno superior e inferior amplio */
+            text-align: center; /* Centra todo el texto interior */
+            border-bottom: 5px solid var(--rojo-patrio); /* Borde inferior rojo */
+            flex: 1; /* Permite que la sección ocupe el espacio disponible y empuje el footer al final */
         }
 
+        /* Título del banner principal */
         .hero h1 {
-            font-size: 2.8rem;
-            color: var(--verde-patrio);
-            margin-bottom: 15px;
+            font-size: 2.8rem; /* Tamaño de letra grande */
+            color: var(--verde-patrio); /* Color verde */
+            margin-bottom: 15px; /* Margen inferior */
         }
 
+        /* Parrafo explicativo del banner */
         .hero p {
-            font-size: 1.2rem;
-            color: var(--texto-suave);
-            max-width: 700px;
-            margin: 0 auto 35px auto;
+            font-size: 1.2rem; /* Tamaño de letra medio */
+            color: var(--texto-suave); /* Color suave para no saturar */
+            max-width: 700px; /* Limita el ancho del texto para legibilidad */
+            margin: 0 auto 35px auto; /* Centra el párrafo y agrega margen inferior */
         }
 
+        /* Rejilla para organizar tarjetas de navegación */
         .grid-navegacion {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            display: grid; /* Activa el modelo Grid de CSS */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas adaptables al ancho */
+            gap: 20px; /* Separación entre tarjetas */
+            margin-top: 20px; /* Margen superior */
         }
 
+        /* Estilo de la tarjeta interactiva de navegación */
         .card-nav {
-            background: var(--blanco);
-            padding: 30px 20px;
-            border-radius: 8px;
-            box-shadow: var(--sombra);
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            border-top: 4px solid var(--verde-patrio);
-            transition: transform 0.3s, border-color 0.3s;
+            background: var(--blanco); /* Fondo blanco */
+            padding: 30px 20px; /* Espaciado interno */
+            border-radius: 8px; /* Esquinas redondeadas */
+            box-shadow: var(--sombra); /* Sombra flotante */
+            text-decoration: none; /* Quita subrayado de enlace */
+            color: var(--texto-oscuro); /* Texto oscuro */
+            border-top: 4px solid var(--verde-patrio); /* Borde superior verde */
+            transition: transform 0.3s, border-color 0.3s; /* Animación de movimiento y color */
         }
 
+        /* Efecto al pasar el cursor sobre la tarjeta */
         .card-nav:hover {
-            transform: translateY(-5px);
-            border-top-color: var(--rojo-patrio);
+            transform: translateY(-5px); /* Eleva la tarjeta 5 píxeles */
+            border-top-color: var(--rojo-patrio); /* Cambia el borde superior a rojo */
         }
 
+        /* Título de cada tarjeta de navegación */
         .card-nav h3 {
-            color: var(--verde-patrio);
-            margin-bottom: 10px;
+            color: var(--verde-patrio); /* Color verde */
+            margin-bottom: 10px; /* Margen inferior */
         }
 
+        /* Estilo general para botones interactivos */
         .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            margin-top: 15px;
+            display: inline-block; /* Permite aplicar márgenes y dimensiones sin perder comportamiento en línea */
+            padding: 10px 20px; /* Espaciado interno */
+            font-weight: 600; /* Texto seminegrita */
+            text-decoration: none; /* Elimina subrayado */
+            border-radius: 5px; /* Borde redondeado suave */
+            transition: all 0.3s ease; /* Transición suave para todos los cambios visuales */
+            margin-top: 15px; /* Margen superior */
         }
 
+        /* Botón estilo verde */
         .btn-verde {
-            background-color: var(--verde-patrio);
-            color: var(--blanco);
+            background-color: var(--verde-patrio); /* Fondo verde */
+            color: var(--blanco); /* Texto blanco */
         }
 
+        /* Cambio de tono verde en interacción hover */
         .btn-verde:hover {
-            background-color: #004d34;
+            background-color: #004d34; /* Tono verde más oscuro */
         }
 
+        /* Estilos del pie de página */
         footer {
-            background-color: var(--blanco);
-            text-align: center;
-            padding: 30px 0;
-            margin-top: auto;
-            border-top: 5px solid var(--verde-patrio);
+            background-color: var(--blanco); /* Fondo blanco */
+            text-align: center; /* Texto centrado */
+            padding: 30px 0; /* Espaciado interno superior/inferior */
+            margin-top: auto; /* Empuja el footer al final de la vista mediante Flexbox */
+            border-top: 5px solid var(--verde-patrio); /* Borde superior verde */
         }
 
+        /* Parrafos informativos dentro del pie de página */
         footer p {
-            color: var(--texto-suave);
-            font-size: 0.9rem;
+            color: var(--texto-suave); /* Color suave */
+            font-size: 0.9rem; /* Tamaño de letra menor */
         }
     </style>
 </head>
 <body>
 
+    <!-- Encabezado superior con la barra de navegación del sitio -->
     <header>
+        <!-- Contenedor alineado -->
         <div class="container">
+            <!-- Etiqueta de navegación principal -->
             <nav>
+                <!-- Enlace del logo que redirige al inicio -->
                 <a href="index.html" class="logo">Septiembre <span>Patrio</span></a>
+                <!-- Lista de enlaces para ir navegando entre los distintos archivos HTML -->
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Inicio</a></li>
                     <li><a href="cronologia.html">Línea de Tiempo</a></li>
@@ -188,22 +226,29 @@
         </div>
     </header>
 
+    <!-- Sección principal informativa con enlaces rápidos hacia cada página del sitio -->
     <section class="hero">
         <div class="container">
+            <!-- Título principal -->
             <h1>Acontecimientos del Mes Patrio</h1>
+            <!-- Parrafo de bienvenida -->
             <p>Conoce la historia, los héroes y las fechas fundamentales que dieron origen al México independiente durante el mes de septiembre.</p>
             
+            <!-- Rejilla con accesos directos a las páginas desarrolladas -->
             <div class="grid-navegacion">
+                <!-- Tarjeta que redirige a la cronología -->
                 <a href="cronologia.html" class="card-nav">
                     <h3>Línea de Tiempo</h3>
                     <p>Fechas clave desde el Grito hasta la Consumación.</p>
                     <span class="btn btn-verde">Explorar</span>
                 </a>
+                <!-- Tarjeta que redirige a personajes ilustres -->
                 <a href="personajes.html" class="card-nav">
                     <h3>Personajes Ilustres</h3>
                     <p>Las figuras fundamentales del movimiento insurgente.</p>
                     <span class="btn btn-verde">Ver Figuras</span>
                 </a>
+                <!-- Tarjeta que redirige a la sección de mitos y datos curiosos -->
                 <a href="mitos.html" class="card-nav">
                     <h3>Mitos y Datos</h3>
                     <p>Verdades y mitos populares sobre la Independencia.</p>
@@ -213,10 +258,11 @@
         </div>
     </section>
 
+    <!-- Pie de página independiente de la página de inicio -->
     <footer>
         <div class="container">
-            <p><strong>Jesus Candia 0814</strong></p>
-            <p><center>5to J</p></center>
+            <p><strong>Sitio Web Informativo - Mes Patrio</strong></p>
+            <p>Inicio - Plataforma Histórica Digital</p>
         </div>
     </footer>
 
